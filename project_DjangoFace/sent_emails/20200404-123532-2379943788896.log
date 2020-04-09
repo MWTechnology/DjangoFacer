@@ -1,0 +1,50 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: 
+ =?utf-8?b?0KHQsdGA0L7RgSDQv9Cw0YDQvtC70Y8g0L3QsCBsb2NhbGhvc3Q6ODAwMA==?=
+From: webmaster@localhost
+To: andre@mail.ru
+Date: Sat, 04 Apr 2020 09:35:32 -0000
+Message-ID: <158599293222.6492.1453702774831340986@DESKTOP-6CR14PJ>
+
+<!doctype  html>
+<html  lang="en">
+<head>
+<link  rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"  crossorigin="anonymous">
+<title>Система распознования</title>
+</head>
+<body>
+  <div  class="container">
+    <div  class="row justify-content-center">
+      <div  class="col-4">
+      <h1  class="text-center">Система Распознования</h1>
+      
+<div  class="card">
+<div  class="card-body">
+<h4  class="card-title">Reset your password</h4>
+<form  method="post">
+
+<input  type="hidden"  name="next"  value="">
+
+
+
+
+
+<button  type="submit"  class="btn btn-primary btn-block">Reset</button>
+</form>
+</div>
+</div>
+</div>
+
+      </div>
+
+    </div>
+    <div  class="row justify-content-center">
+    
+      
+      </div>
+  </div>
+</body>
+</html>
+-------------------------------------------------------------------------------

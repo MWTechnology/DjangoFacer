@@ -1,0 +1,106 @@
+<!doctype  html>
+<html  lang="en">
+<head>
+<link  rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"  crossorigin="anonymous">
+<title>Система распознования</title>
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark ">
+  <a class="navbar-brand" href="#">Система распознования</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+
+
+      {% if request.user.is_authenticated %}
+      {% block header %}
+    <ul class="navbar-nav">
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-toggle="dropdown" aria-expanded="false">{{ user.get_username }}</a>
+          <div class="dropdown-menu " aria-labelledby="dropdown07XL">
+            <a class="dropdown-item" href="{% url 'logout' %}">Выйти</a>
+            <a class="dropdown-item" href="{% url 'password_change' %}">Сменить пароль</a>
+          </div>
+        </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'suspect_new' %}">Добавить подозреваемого <span class="sr-only">(current)</span></a>
+      </li>
+        <li class="nav-item active">
+        <a class="nav-link" href="{% url 'searchface' %}">Найти по фото <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+{% endblock %}
+      {% else %}
+
+    <ul class="navbar-nav">
+
+        <li class="nav-item active">
+        <a class="nav-link" href="{% url 'login' %} ">Авторизоваться<span class="sr-only">(current)</span></a>
+
+      </li>
+        <li class="nav-item active">
+
+            <a class="nav-link" href="{% url 'register' %} ">Зарегистрироваться<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+{% endif %} </nav>
+
+
+{% if request.user.is_authenticated %}
+
+
+  <div  class="container " style="padding-top: 100px;  padding-bottom: 50px;">
+    <div  class="row justify-content-center ">
+      <div  class="col-8">
+      {% block main %}
+      {% endblock %}
+      </div>
+
+    </div>
+    <div  class="row justify-content-center">
+    {% block main1 %}
+      {% endblock %}
+
+      </div>
+  </div>
+
+{% else %}
+<div  class="container " style="padding-top: 100px;  padding-bottom: 50px;">
+    <div  class="row justify-content-center ">
+      <div  class="col-8">
+<div class="card">
+<div class="card-body text-center">
+<h4 class="card-title text-center">Вы не авторизованы</h4>
+
+   </div>
+
+    </div>
+      </div>
+
+    </div>
+    </div>
+
+{% endif %}
+<footer class="footer bg-dark fixed-bottom"  style="height: 50px; background-color: rgba(255,0,0,0.1);" >
+      <div class="container text-center  align-middle ">
+          <ul class="navbar-nav">
+        <li><span class="text-muted "  ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Контакты: 8-999-888-88-88 </font></font></span></li>
+      <li><span class="text-muted "  ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Почта: google@mail.ru </font></font></span></li>
+
+      </ul>
+      </div>
+    </footer>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>
+

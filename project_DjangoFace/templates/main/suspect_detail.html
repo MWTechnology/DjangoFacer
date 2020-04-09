@@ -1,0 +1,51 @@
+{% extends 'base_user.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block header %}
+    <ul class="navbar-nav">
+
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-toggle="dropdown" aria-expanded="false">{{ user.get_username }}</a>
+          <div class="dropdown-menu " aria-labelledby="dropdown07XL">
+            <a class="dropdown-item" href="{% url 'logout' %}">Выйти</a>
+            <a class="dropdown-item" href="{% url 'password_change' %}">Сменить пароль</a>
+          </div>
+        </li>
+       <li class="nav-item active">
+        <a class="nav-link" href="{% url 'suspect_list' %}">Главная <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'suspect_new' %}">Добавить подозреваемого <span class="sr-only">(current)</span></a>
+      </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'searchface' %}">Найти по фото <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+{% endblock %}
+{% block main1 %}
+
+<div class="col-md-10">
+          <div class="card flex-md-row mb-4 box-shadow h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+
+              <h3 class="mb-0">
+                <a class="text-dark" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ suspect.surname }} {{ suspect.name }} {{ suspect.patronymic }}</font></font></a>
+              </h3>
+              <div class="mb-1 text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><strong>Родился</strong> {{ suspect.date_of_birth}}</font></font></div>
+                <div class="mb-1 text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><strong>Паспорт:</strong>  {{ suspect.passport }} </font></font></div>
+
+              <p class="card-text mb-auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><strong>Дополнительная информация:</strong> {{ suspect.crimes }}</font></font></p>
+                <strong class="d-inline-block mb-2 text-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Информация обновлена: {{ suspect.published_date }}</font></font></strong>
+
+            </div>
+              {% if suspect.image %}
+            <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Миниатюра [200x250]" style="width: 200px; height: 250px;" src="{{ MEDIA_URL }}{{ suspect.image.url }}" data-holder-rendered="true">
+          {% else %}
+              <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Миниатюра [200x250]" style="width: 200px; height: 250px;" src="{% static 'main/unknown.jpg' %}" data-holder-rendered="true">
+          {% endif %}
+          </div>
+        </div>
+
+
+{% endblock %}
